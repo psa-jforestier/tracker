@@ -53,7 +53,7 @@ if ($deviceid == '')
 		$client = 'OVERLAND';	// https://github.com/aaronpk/Overland-iOS#settings
 	/*
 	To simulate overland :
-	 curl "http://box.forestier.xyz:8889/" --data '{"locations":[{"type":"Feature","geometry":{"type":"Point","coordinates":[2.2074531999999998,48.9724559]},"properties":{"speed":0,"battery_state":"unplugged","motion":["stationary"],"timestamp":"2025-11-07T17:55:35Z","horizontal_accuracy":2,"speed_accuracy":0.29999999999999999,"vertical_accuracy":8,"battery_level":0.45000000000000001,"wifi":"jejebox","course":-1,"device_id":"__IPHONEMAX","altitude":87,"course_accuracy":-1}}]}' --request POST --header "Content-Type: application/json"
+	 curl "http://server:8889/" --data '{"locations":[{"type":"Feature","geometry":{"type":"Point","coordinates":[2.2074531999999998,48.9724559]},"properties":{"speed":0,"battery_state":"unplugged","motion":["stationary"],"timestamp":"2025-11-07T17:55:35Z","horizontal_accuracy":2,"speed_accuracy":0.29999999999999999,"vertical_accuracy":8,"battery_level":0.45000000000000001,"wifi":"jejebox","course":-1,"device_id":"__IPHONEMAX","altitude":87,"course_accuracy":-1}}]}' --request POST --header "Content-Type: application/json"
 	 **/
 }
 if ($deviceid == '')
@@ -96,7 +96,7 @@ if ($method == 'POST' && $client == 'OVERLAND')
 }
 if ($method == 'GET' && $client == 'TRACCAR')
 {
-	// http://box.forestier.xyz:8889/index.php?id=185794&timestamp=1698414732&lat=48.97231&lon=2.2072233&speed=0.0&bearing=0.0&altitude=133.0&accuracy=100.0&batt=98.0
+	// http://server:8889/index.php?id=185794&timestamp=1698414732&lat=48.97231&lon=2.2072233&speed=0.0&bearing=0.0&altitude=133.0&accuracy=100.0&batt=98.0
 	$lat = sprintf("%.5f",$_REQUEST['lat']);
 	$lon = sprintf("%.5f",$_REQUEST['lon']);
 	$alt = sprintf("%.5f",$_REQUEST['alt'] . @$_REQUEST['altitude']);
@@ -239,3 +239,4 @@ else
 }
 @header("Content-Type: application/json");
 echo json_encode($res);
+
