@@ -48,7 +48,7 @@ if ($fmt === 'json')
 	if (!document.URL.toString().startsWith("https://"))
 	{
 		u = new URL(document.URL);
-		document.location.href = "https://box.forestier.xyz:4439/" + u.pathname+"?"+u.search;
+		document.location.href = "https://"+u.hostname+":4439/" + u.pathname+"?"+u.search;
 	}
 	function haversineDistance(point1, point2) {
 		const R = 6371e3; // Earth's radius in meters
